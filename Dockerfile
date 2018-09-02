@@ -12,5 +12,8 @@ RUN apt-get update && apt-get -y install libldap-dev \
 # Extentions: 
 COPY src/extensions/ /var/www/mediawiki/extensions/
 
-#RUN chown -R www-data:www-data /var/www/html
+# Custom entrypoint:
+COPY src/docker-entrypoint.sh /docker-entrypoint.sh
+
+VOLUME ["/var/cache/nginx", "/data", "/images", "/srv"]
 
