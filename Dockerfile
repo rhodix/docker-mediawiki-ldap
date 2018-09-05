@@ -14,6 +14,7 @@ COPY src/extensions/ /var/www/mediawiki/extensions/
 
 # Custom entrypoint:
 COPY src/docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod 0755 /docker-entrypoint.sh
 
 VOLUME ["/var/cache/nginx", "/data", "/images", "/srv"]
 
